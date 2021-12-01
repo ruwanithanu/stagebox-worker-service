@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build and push
-        uses: NazmiAltun/private-action-loader@v1
+        uses: angloeastern/private-action-loader@v1.0.0
         with:
           repo-token: ${{ secrets.PAT }}
           repo-name: angloeastern/action-docker-image
@@ -28,7 +28,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Scan
-        uses: NazmiAltun/private-action-loader@v1
+        uses: angloeastern/private-action-loader@v1.0.0
         with:
           repo-token: ${{ secrets.PAT }}
           repo-name: angloeastern/action-sonar-scanner
