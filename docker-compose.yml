@@ -1,0 +1,7 @@
+version: "3.8"
+
+services:
+  build:
+    image: ghcr.io/${GITHUB_REPOSITORY}:build-${GIT_REF_TAG}
+    volumes:
+      - ./coverage:/coverage

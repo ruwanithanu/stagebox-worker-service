@@ -1,0 +1,38 @@
+name: CI
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+
+env:
+  PAT: ${{ secrets.PAT }}
+jobs:
+  build-and-push:
+    name: Build and Push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build and push
+        uses: NazmiAltun/private-action-loader@v1
+        with:
+          repo-token: ${{ secrets.PAT }}
+          repo-name: angloeastern/action-docker-image
+  sonar-scan:
+    name: Sonar Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Scan
+        uses: NazmiAltun/private-action-loader@v1
+        with:
+          repo-token: ${{ secrets.PAT }}
+          repo-name: angloeastern/action-sonar-scanner
+          sonar-token: ${{ secrets.SONAR_TOKEN }}
+          has-tests: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,21 @@
+.git
+.github
+
+**/.vs
+**/.vscode
+
+**/bin
+**/obj
+
+# SQL Server files
+**/*.mdf
+**/*.ldf
+**/*.ndf
+
+**/*.tar
+**/*.tar.gz
+
+coverage
+README.md
+Dockerfile
+docker-compose.yml
